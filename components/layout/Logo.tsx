@@ -14,7 +14,7 @@ const Logo: React.FC = () => {
           Edverso
         </h1>
         <p className="text-xs md:text-sm text-gray-500 leading-tight">
-          Powered by BALAJEE SEWA SANSTHAN
+          Powered by KIVT
         </p>
       </div>
     </Link>
