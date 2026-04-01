@@ -1,6 +1,7 @@
 // app/register/page.tsx
 import type { Metadata } from "next";
 import RegistrationForm from "@/components/register/RegistrationForm";
+import RegisterForm from "@/components/register/NewRegistration";
 
 export const metadata: Metadata = {
   title: "Register - Balaji UGC Internship LMS",
@@ -14,9 +15,4 @@ export default function RegisterPage() {
       <RegistrationForm/>
     </div>
   );
-}
-import RegisterForm from "@/components/register/NewRegistration";
-
-export default function RegisterPage() {
-  return <RegisterForm />;
 }
