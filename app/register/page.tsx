@@ -15,3 +15,8 @@ export default function RegisterPage() {
     </div>
   );
 }
+import RegisterForm from "@/components/register/NewRegistration";
+
+export default function RegisterPage() {
+  return <RegisterForm />;
+}
