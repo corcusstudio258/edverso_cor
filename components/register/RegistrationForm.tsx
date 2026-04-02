@@ -7,12 +7,13 @@ import StudentRegistration from "./StudentRegistration";
 import CollegeRegistration from "./CollegeRegistration";
 import NewRegistration from "./NewRegistration";
 
-type RegistrationType = 'student' | 'college';
+type RegistrationType = 'student' | 'college' | 'new';
 
 export default function RegistrationForm() {
-  const [activeTab, setActiveTab] = useState<RegistrationType>('student');
+  const [activeTab, setActiveTab] = useState<RegistrationType>('new');
 
   const tabs = [
+    { id: 'new' as const, name: 'New Registration', icon: '📝', description: 'New student onboarding' },
     { id: 'student' as const, name: 'Student Registration', icon: '🎓', description: 'Individual student account' },
     { id: 'college' as const, name: 'College Registration', icon: '🏛️', description: 'Institutional partnership' },
   ];
@@ -24,7 +25,7 @@ export default function RegistrationForm() {
       <div className="card shadow-2xl border-0 overflow-hidden">
         {/* Tab Navigation */}
         <div className="border-b border-gray-200">
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-3">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -60,7 +61,13 @@ export default function RegistrationForm() {
 
         {/* Tab Content */}
         <div className="p-8">
-          {activeTab === 'student' ? <StudentRegistration/> : <CollegeRegistration/>}
+          {activeTab === 'student' ? (
+            <StudentRegistration />
+          ) : activeTab === 'college' ? (
+            <CollegeRegistration />
+          ) : (
+            <NewRegistration />
+          )}
         </div>
       </div>
 

@@ -23,7 +23,7 @@ export interface IStudent extends Document {
   // Personal Info
   fullName: string;
   gender: Gender;
-  parentName: string;
+  parentName?: string;
   contactNumber: string;
   email: string;
   passwordHash: string;
@@ -37,9 +37,9 @@ export interface IStudent extends Document {
   classSemester: string;
 
   // Emergency Contact
-  emergencyContactName: string;
-  emergencyContactNumber: string;
-  emergencyRelation: string;
+  emergencyContactName?: string;
+  emergencyContactNumber?: string;
+  emergencyRelation?: string;
 
   // Internship Info
   organizationName?: string;
@@ -96,8 +96,8 @@ const StudentSchema = new Schema<IStudent>(
     // Personal Info
     fullName: { type: String, required: true, trim: true },
     gender: { type: String, enum: ["Male", "Female", "Other"], required: true },
-    parentName: { type: String, required: true },
-    contactNumber: { type: String, required: true },
+    parentName: { type: String, required: false },
+    contactNumber: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true, lowercase: true },
     passwordHash: { type: String, required: true },
 
@@ -119,9 +119,9 @@ const StudentSchema = new Schema<IStudent>(
     durationHours: { type: Number },
 
     // Emergency Contact
-    emergencyContactName: { type: String, required: true },
-    emergencyContactNumber: { type: String, required: true },
-    emergencyRelation: { type: String, required: true },
+    emergencyContactName: { type: String, required: false },
+    emergencyContactNumber: { type: String, required: false },
+    emergencyRelation: { type: String, required: false },
 
     // Payment & uploads
     registrationStatus: {
