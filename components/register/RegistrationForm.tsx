@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import StudentRegistration from "./StudentRegistration";
 import CollegeRegistration from "./CollegeRegistration";
+import NewRegistration from "./NewRegistration";
 
 type RegistrationType = 'student' | 'college';
 

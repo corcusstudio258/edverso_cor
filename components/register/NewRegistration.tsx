@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
-// app/register/RegisterForm.tsx
+//app/register/NewRegistration.tsx
 'use client';
 
 import { useMemo, useState } from "react";
@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api";
+import app from "next/app";
 
 const UNIVERSITIES = ["Patliputra University"] as const;
 
