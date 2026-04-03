@@ -369,9 +369,9 @@ export default function RegisterForm() {
               {errorMsg("universityRollNo")}
             </div>
 
-            {/* Graduation */}
+            {/* Degree */}
             <div>
-              <label htmlFor="graduation" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="degree" className="block text-sm font-medium text-gray-700 mb-2">
                 Degree <span className="text-red-500">*</span>
               </label>
               <select {...field("degree")} className={inputClass("degree")}>
