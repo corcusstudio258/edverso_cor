@@ -89,7 +89,7 @@ const MAJOR_SUBJECTS = [
   "Commerce",
 ] as const;
 
-const DEGREE_TYPES = ["UG", "PG"] as const;
+const GRADUATION_TYPES = ["UG", "PG"] as const;
 const SEMESTERS = ["1", "2", "3", "4", "5", "6", "7", "8"] as const;
 const GENDER_OPTIONS = ["Male", "Female", "Other"] as const;
 
@@ -107,7 +107,7 @@ interface RegisterFormData {
   collegeName: string;
   universityRegistrationNumber: string;
   universityRollNo: string;
-  degree: string;
+  graduation: string;
   majorSubject: string;
   semester: string;
   phoneNumber: string;
@@ -144,8 +144,8 @@ function validate(data: RegisterFormData): FormErrors {
   else if (!ROLL_RE.test(data.universityRollNo.trim()))
     e.universityRollNo = "Roll number must be exactly 12 digits.";
 
-  if (!data.degree)
-    e.degree = "Please select degree type.";
+  if (!data.graduation)
+    e.graduation = "Please select graduation type.";
 
   if (!data.majorSubject)
     e.majorSubject = "Please select a major subject.";
@@ -187,7 +187,7 @@ export default function RegisterForm() {
     collegeName: "",
     universityRegistrationNumber: "",
     universityRollNo: "",
-    degree: "",
+    graduation: "",
     majorSubject: "",
     semester: "",
     phoneNumber: "",
@@ -238,7 +238,7 @@ export default function RegisterForm() {
         collegeName: formData.collegeName,
         universityRegistrationNumber: formData.universityRegistrationNumber.trim(),
         universityRollNo: formData.universityRollNo.trim(),
-        degree: formData.degree,
+        graduation: formData.graduation,
         majorSubject: formData.majorSubject,
         semester: Number(formData.semester),
         phoneNumber: formData.phoneNumber.trim(),
@@ -369,16 +369,16 @@ export default function RegisterForm() {
               {errorMsg("universityRollNo")}
             </div>
 
-            {/* Degree */}
+            {/* graduation */}
             <div>
-              <label htmlFor="degree" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="graduation" className="block text-sm font-medium text-gray-700 mb-2">
                 Degree <span className="text-red-500">*</span>
               </label>
-              <select {...field("degree")} className={inputClass("degree")}>
+              <select {...field("graduation")} className={inputClass("graduation")}>
                 <option value="">Select degree type</option>
-                {DEGREE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+                {GRADUATION_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
-              {errorMsg("degree")}
+              {errorMsg("graduation")}
             </div>
 
             {/* Major Subject */}
