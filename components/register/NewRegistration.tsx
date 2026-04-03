@@ -22,7 +22,7 @@ const COLLEGES = [
 ] as const;
 
 const MAJOR_SUBJECTS = [
-  "Computer Science",
+  "BioTech",
   "BCA",
   "BBA",
   "Physics",
@@ -36,6 +36,11 @@ const MAJOR_SUBJECTS = [
   "Geography",
   "Hindi",
   "English",
+  "Urdu",
+  "Sanskrit",
+  "Philosophy",
+  "Psychology",
+  "Sociology",
   "Commerce",
 ] as const;
 
@@ -57,7 +62,7 @@ interface RegisterFormData {
   collegeName: string;
   universityRegistrationNumber: string;
   universityRollNo: string;
-  graduation: string;
+  degree: string;
   majorSubject: string;
   semester: string;
   phoneNumber: string;
@@ -94,8 +99,8 @@ function validate(data: RegisterFormData): FormErrors {
   else if (!ROLL_RE.test(data.universityRollNo.trim()))
     e.universityRollNo = "Roll number must be exactly 12 digits.";
 
-  if (!data.graduation)
-    e.graduation = "Please select graduation type.";
+  if (!data.degree)
+    e.degree = "Please select graduation type.";
 
   if (!data.majorSubject)
     e.majorSubject = "Please select a major subject.";
@@ -137,7 +142,7 @@ export default function RegisterForm() {
     collegeName: "",
     universityRegistrationNumber: "",
     universityRollNo: "",
-    graduation: "",
+    degree: "",
     majorSubject: "",
     semester: "",
     phoneNumber: "",
@@ -188,7 +193,7 @@ export default function RegisterForm() {
         collegeName: formData.collegeName,
         universityRegistrationNumber: formData.universityRegistrationNumber.trim(),
         universityRollNo: formData.universityRollNo.trim(),
-        graduation: formData.graduation,
+        degree: formData.degree,
         majorSubject: formData.majorSubject,
         semester: Number(formData.semester),
         phoneNumber: formData.phoneNumber.trim(),
@@ -311,9 +316,10 @@ export default function RegisterForm() {
                 {...field("universityRollNo")}
                 type="text"
                 inputMode="numeric"
-                maxLength={12}
+                minLength={11}
+                maxLength={13}
                 className={inputClass("universityRollNo")}
-                placeholder="Enter 12-digit roll number"
+                placeholder="Enter roll number"
               />
               {errorMsg("universityRollNo")}
             </div>
@@ -321,13 +327,13 @@ export default function RegisterForm() {
             {/* Graduation */}
             <div>
               <label htmlFor="graduation" className="block text-sm font-medium text-gray-700 mb-2">
-                Graduation <span className="text-red-500">*</span>
+                Degree <span className="text-red-500">*</span>
               </label>
-              <select {...field("graduation")} className={inputClass("graduation")}>
-                <option value="">Select graduation type</option>
-                {GRADUATION_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+              <select {...field("degree")} className={inputClass("degree")}>
+                <option value="">Select degree type</option>
+                {DEGREE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
-              {errorMsg("graduation")}
+              {errorMsg("degree")}
             </div>
 
             {/* Major Subject */}
