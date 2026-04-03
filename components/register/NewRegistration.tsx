@@ -44,7 +44,7 @@ const MAJOR_SUBJECTS = [
   "Commerce",
 ] as const;
 
-const GRADUATION_TYPES = ["UG", "PG"] as const;
+const DEGREE_TYPES = ["UG", "PG"] as const;
 const SEMESTERS = ["1", "2", "3", "4", "5", "6", "7", "8"] as const;
 const GENDER_OPTIONS = ["Male", "Female", "Other"] as const;
 
@@ -100,7 +100,7 @@ function validate(data: RegisterFormData): FormErrors {
     e.universityRollNo = "Roll number must be exactly 12 digits.";
 
   if (!data.degree)
-    e.degree = "Please select graduation type.";
+    e.degree = "Please select degree type.";
 
   if (!data.majorSubject)
     e.majorSubject = "Please select a major subject.";
