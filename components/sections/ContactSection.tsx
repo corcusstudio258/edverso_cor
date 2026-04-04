@@ -78,7 +78,7 @@ const ContactSection: FC = () => {
       icon: "🏢",
       title: "Office",
       description: "Visit our headquarters",
-      details: "Railly, Pandarak, Patna- 803221",
+      details: "Ground floor, Hotel The Kanak Near Jaganathan school Park, Barh, Patna- 803213",
       link: "#"
     }
   ];

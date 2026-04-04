@@ -314,7 +314,7 @@ export default function RegisterForm() {
                 Gender <span className="text-red-500">*</span>
               </label>
               <select {...field("gender")} className={inputClass("gender")}>
-                <option value="">Select gender</option>
+                <option value="">Select</option>
                 {GENDER_OPTIONS.map((g) => <option key={g} value={g}>{g}</option>)}
               </select>
               {errorMsg("gender")}
