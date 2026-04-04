@@ -97,8 +97,8 @@ const GENDER_OPTIONS = ["Male", "Female", "Other"] as const;
 const INDIAN_PHONE_RE = /^[6-9]\d{9}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_RE = /^[a-zA-Z\s]{3,}$/;
-// Roll number: exactly 12 digits
-const ROLL_RE = /^\d{12}$/;
+// Roll number: 11 to 13 digits
+const ROLL_RE = /^\d{11,13}$/;
 
 interface RegisterFormData {
   fullName: string;
@@ -142,7 +142,7 @@ function validate(data: RegisterFormData): FormErrors {
   if (!data.universityRollNo.trim())
     e.universityRollNo = "University roll number is required.";
   else if (!ROLL_RE.test(data.universityRollNo.trim()))
-    e.universityRollNo = "Roll number must be exactly 12 digits.";
+    e.universityRollNo = "Roll number must be between 11 and 13 digits.";
 
   if (!data.graduation)
     e.graduation = "Please select graduation type.";
