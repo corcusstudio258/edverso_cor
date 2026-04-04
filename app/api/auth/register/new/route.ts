@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 
 const INDIAN_PHONE_RE = /^[6-9]\d{9}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const ROLL_RE = /^\d{12}$/;
+const ROLL_RE = /^\d{11,13}$/;
 
 type Body = {
   fullName: string;
@@ -51,10 +51,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
     }
 
-    // Roll number: exactly 12 digits
+    // Roll number: 11 to 13 digits
     if (!ROLL_RE.test(String(body.universityRollNo).trim())) {
       return NextResponse.json(
-        { error: "universityRollNo must be exactly 12 digits" },
+        { error: "universityRollNo must be between 11 and 13 digits" },
         { status: 400 }
       );
     }
