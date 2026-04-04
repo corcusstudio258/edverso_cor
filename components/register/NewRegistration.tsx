@@ -163,8 +163,6 @@ function validate(data: RegisterFormData): FormErrors {
   else if (!EMAIL_RE.test(data.email.trim()))
     e.email = "Enter a valid email address.";
 
-  return e;
-
   if (!data.password)
     e.password = "Password is required.";
   else if (data.password.length < 8)
